@@ -1,0 +1,56 @@
+body {
+  padding: 10px;
+  max-width: 1400px;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section {
+    width: 100%;
+}
+
+#etv-gallery {
+    display: grid;
+    grid-template-columns: 32% 32% 32%;
+    justify-content: space-between;
+}
+
+#gallery-element {
+    background-color: ghostwhite;
+    text-align: center;
+    margin: 2%;
+    width: 100%;
+    padding: 0;
+}
+
+#gallery-element > img {
+    width: 100%;
+}
+
+#gallery-element > * {
+    margin: 0;
+    padding: 0;
+}
+
+#gallery-element > h3 {
+    margin-top: 2%;
+}
+
+
+#etv-documentation {
+    display: flex;
+    width: 100%;
+    gap: 3%;
+}
+
+#etv-documentation > video {
+    width: 100%;
+}
+
+#etv-documentation > p {
+    width: 50%;
+    background-color: ghostwhite;
+    height: fit-content;
+    padding: 2%;
+}

@@ -16,13 +16,13 @@
 -->
 
 <head>
-    <title>...</title>
+    <title>Ambrose Sturgill</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="..." />
     <link href="static/css/normalize.css"
           type="text/css" rel="stylesheet" />
-    <link href="static/css/main.css"
+    <link href="static/css/main.css?v=1"
           type="text/css" rel="stylesheet" />
 </head>
 
@@ -37,14 +37,38 @@
     <main>
 
         <section id="etv">
-            <h1> Election Transparency Project </h1>
-            <img src="static/image/ETV_running_total.png" alt="" />
-            <img src="static/image/ETV_snapshot.png" alt="" />
-            <img src="static/image/ETV_image_view.png" alt="" />
-            <video controls muted>
-                <source src="static/video/ETV_demo.webm" type="video/webm" />
-                <a href="static/video/ETV_demo.webm" download="static/video/ETV_demo.webm">Download video.</a>
-            </video>
+            <h2> Election Transparency Viewer </h2>
+            
+            <div id="etv-documentation">
+                <video controls muted>
+                    <source src="static/video/ETV_demo.webm" type="video/webm" />
+                    <a href="static/video/ETV_demo.webm" download="static/video/ETV_demo.webm">Download video.</a>
+                </video>
+                <p>
+                    The Election Transparency Viewer is a locally hosted web application developed to assist the process of 
+                    scanning ballots by providing a live view of scanned ballots for the Election Transparency Project, 
+                    a nonprofit volunteer run organization dedicated to the verification of the electoral process for Humboldt County.
+                    <br /> <br />
+                    The application uses the Django web framework and integrates a SQLite database controlled by the scanning machine.
+                    Along with assisting in the application's development on all layers, my role included the design of the user interface
+                    and the development of the image viewer, which was implemented using vanilla Javascript.
+                </p>
+            </div>
+
+            <div id="etv-gallery">
+                <div id="gallery-element">
+                    <h3> Running Total view </h3>
+                    <img src="static/image/ETV_running_total.png" alt="" />
+                </div>
+                <div id="gallery-element">
+                    <h3> Snapshot Total view </h3>
+                    <img src="static/image/ETV_snapshot.png" alt="" />
+                </div>
+                <div id="gallery-element">
+                    <h3> Image view </h3>
+                    <img src="static/image/ETV_image_view.png" alt="" />
+                </div>
+            </div>
         </section>
 
         <section id="cactus">
