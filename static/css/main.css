@@ -16,7 +16,7 @@ section {
     justify-content: space-between;
 }
 
-#gallery-element {
+.gallery-element {
     background-color: ghostwhite;
     text-align: center;
     margin: 2%;
@@ -24,17 +24,18 @@ section {
     padding: 0;
 }
 
-#gallery-element > img {
+.gallery-element > img {
     width: 100%;
 }
 
-#gallery-element > * {
+.gallery-element > * {
     margin: 0;
     padding: 0;
 }
 
-#gallery-element > h3 {
+.gallery-element > h3 {
     margin-top: 2%;
+    margin-bottom: 2%;
 }
 
 
