@@ -28,46 +28,49 @@
 
 <body>
 
-    <header>
-        <nav>
-
-        </nav>
-    </header>
-
     <main>
+
+        <section id="about">
+
+        </section>
 
         <section id="etv">
             <h2> Election Transparency Viewer </h2>
             
-            <div id="etv-documentation">
-                <video muted loop autoplay>
+            <p>
+                The Election Transparency Viewer is a locally hosted web application developed to assist the process of 
+                scanning ballots by providing a live view of scanned ballots for the Election Transparency Project, 
+                a nonprofit volunteer run organization dedicated to the verification of the electoral process for Humboldt County.
+                <br /> <br />
+                The application uses the Django web framework and integrates a SQLite database controlled by the scanning machine.
+                Along with assisting in the application's development on all layers, my role included the design of the user interface
+                and the development of the image viewer, which was implemented using vanilla Javascript.
+            </p>
+
+            <div id="etv-gallery">
+
+                <video muted loop autoplay disablePictureInPicture>
                     <source src="static/video/ETV_demo.webm" type="video/webm" />
                     <source src="static/video/ETV_demo.mp4" type="video/mp4" />
                     <a href="static/video/ETV_demo.mp4" download="static/video/ETV_demo.mp4">Download video.</a>
                 </video>
-                <p>
-                    The Election Transparency Viewer is a locally hosted web application developed to assist the process of 
-                    scanning ballots by providing a live view of scanned ballots for the Election Transparency Project, 
-                    a nonprofit volunteer run organization dedicated to the verification of the electoral process for Humboldt County.
-                    <br /> <br />
-                    The application uses the Django web framework and integrates a SQLite database controlled by the scanning machine.
-                    Along with assisting in the application's development on all layers, my role included the design of the user interface
-                    and the development of the image viewer, which was implemented using vanilla Javascript.
-                </p>
-            </div>
 
-            <div id="etv-gallery">
-                <div class="gallery-element">
-                    <h3> Running Total view </h3>
-                    <img src="static/image/ETV_running_total.png" alt="" />
-                </div>
-                <div class="gallery-element">
-                    <h3> Snapshot Total view </h3>
-                    <img src="static/image/ETV_snapshot.png" alt="" />
-                </div>
-                <div class="gallery-element">
-                    <h3> Image view </h3>
-                    <img src="static/image/ETV_image_view.png" alt="" />
+                <div class="slideshow">
+                    <div class="etv-slideshow-element">
+                        <p> 1 / 3 </p>
+                        <img src="static/image/ETV_running_total.png" alt="" />
+                    </div>
+                    <div class="etv-slideshow-element">
+                        <p> 2 / 3 </p>
+                        <img src="static/image/ETV_snapshot.png" alt="" />
+                    </div>
+                    <div class="etv-slideshow-element">
+                        <p> 3 / 3 </p>
+                        <img src="static/image/ETV_image_view.png" alt="" />
+                    </div>
+
+                    <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
                 </div>
             </div>
         </section>
@@ -81,13 +84,57 @@
                 Listing's are populated dynamically from an XML file, which is managed through a GitHub Actions workflow.
             </p>
 
-            <video muted loop autoplay>
-                    <source src="static/video/ancienttech_demo.webm" type="video/webm" />
-                    <source src="static/video/ancienttech_demo.mp4" type="video/mp4" />
-                    <a href="static/video/ancienttech_demo.mp4" download="static/video/ancienttech_demo.mp4">Download video.</a>
-            </video>
+            <div id="cactus-gallery">
+
+                <div class="slideshow">
+                    <div class="cactus-slideshow-element">
+                        <p> 1 / 2 </p>
+                        <img src="static/image/ancienttech_phone_listing.png" alt="" />
+                    </div>
+                    <div class="cactus-slideshow-element">
+                        <p> 2 / 2 </p>
+                        <img src="static/image/ancienttech_phone_footer.png" alt="" />
+                    </div>
+
+                    <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
+                </div>
+
+                <div id="cactus-gallery-right">
+                    <img src="static/image/ancienttech_desktop.png" alt="" />
+                    <video muted loop autoplay disablePictureInPicture>
+                            <source src="static/video/ancienttech_demo.webm" type="video/webm" />
+                            <source src="static/video/ancienttech_demo.mp4" type="video/mp4" />
+                            <a href="static/video/ancienttech_demo.mp4" download="static/video/ancienttech_demo.mp4">Download video.</a>
+                    </video>
+                </div>
+            </div>
         </section>
 
     </main>
 
 </body>
+
+<script type="text/javascript">
+    "use strict";
+
+    let slideIndex = [1,1];
+    let slideId = ["etv-slideshow-element", "cactus-slideshow-element"];
+    showSlides(1, 0);
+    showSlides(1, 1);
+
+    function plusSlides(n, no) {
+        showSlides(slideIndex[no] += n, no);
+    }
+
+    function showSlides(n, no) {
+        let i;
+        let x = document.getElementsByClassName(slideId[no]);
+        if (n > x.length) {slideIndex[no] = 1}
+        if (n < 1) {slideIndex[no] = x.length}
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex[no]-1].style.display = "block";
+    }
+</script>

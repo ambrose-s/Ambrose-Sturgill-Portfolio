@@ -1,6 +1,6 @@
 body {
-  padding: 10px;
-  max-width: 1400px;
+  padding: 0;
+  max-width: 820px;
   width: auto;
   margin-left: auto;
   margin-right: auto;
@@ -10,48 +10,108 @@ section {
     width: 100%;
 }
 
+.slideshow {
+    width: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    color: red;
+    font-weight: bold;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+    background-color: green;
+}
+
+
+/* etv */
+
 #etv-gallery {
-    display: grid;
-    grid-template-columns: 32% 32% 32%;
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
     justify-content: space-between;
 }
 
-.gallery-element {
-    background-color: ghostwhite;
-    text-align: center;
-    margin: 2%;
-    width: 100%;
-    padding: 0;
-}
-
-.gallery-element > img {
-    width: 100%;
-}
-
-.gallery-element > * {
-    margin: 0;
-    padding: 0;
-}
-
-.gallery-element > h3 {
-    margin-top: 2%;
-    margin-bottom: 2%;
-}
-
-
-#etv-documentation {
-    display: flex;
-    width: 100%;
-    gap: 3%;
-}
-
-#etv-documentation > video {
-    width: 100%;
-}
-
-#etv-documentation > p {
+#etv-gallery > video {
     width: 50%;
-    background-color: ghostwhite;
-    height: fit-content;
-    padding: 2%;
+}
+
+
+.etv-slideshow-element {
+    display: none;
+}
+
+.etv-slideshow-element > img {
+    width: 100%;
+}
+
+.etv-slideshow-element > p {
+    color: white;
+    background-color: black;
+    margin: 8px 12px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+/* cactus */
+
+#cactus-gallery {
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.cactus-slideshow-element {
+    display: none;
+}
+
+.cactus-slideshow-element > img {
+    width: 100%;
+    height: auto;
+}
+
+.cactus-slideshow-element > p {
+    color: white;
+    background-color: black;
+    margin: 8px 12px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#cactus-gallery-right {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    height: min-content;
+}
+
+#cactus-gallery-right > video {
+    flex: 1;
+    width: 100%;
+    object-fit: cover;
+}
+
+#cactus-gallery-right-img {
+    flex: 0 1 auto;
+    overflow: scroll;
+    object-fit: scale-down;
+    width: 100%;
 }
