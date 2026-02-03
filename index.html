@@ -24,6 +24,8 @@
           type="text/css" rel="stylesheet" />
     <link href="static/css/main.css?v=1"
           type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" 
+          href="https://fonts.googleapis.com/css?family=Work+Sans">
 </head>
 
 <body>
@@ -57,15 +59,15 @@
 
                 <div class="slideshow">
                     <div class="etv-slideshow-element">
-                        <p> 1 / 3 </p>
+                        <p> Running Total view </p>
                         <img src="static/image/ETV_running_total.png" alt="" />
                     </div>
                     <div class="etv-slideshow-element">
-                        <p> 2 / 3 </p>
+                        <p> Snapshot view </p>
                         <img src="static/image/ETV_snapshot.png" alt="" />
                     </div>
                     <div class="etv-slideshow-element">
-                        <p> 3 / 3 </p>
+                        <p> Image view </p>
                         <img src="static/image/ETV_image_view.png" alt="" />
                     </div>
 
@@ -87,26 +89,21 @@
             <div id="cactus-gallery">
 
                 <div class="slideshow">
-                    <div class="cactus-slideshow-element">
-                        <p> 1 / 2 </p>
-                        <img src="static/image/ancienttech_phone_listing.png" alt="" />
+                    <div class="cactus-slideshow-element"> 
+                        <p> Webpage screenshot </p>
+                        <div id="cactus-img-container"> <img src="static/image/ancienttech_desktop.png" alt="" /> </div> 
                     </div>
-                    <div class="cactus-slideshow-element">
-                        <p> 2 / 2 </p>
-                        <img src="static/image/ancienttech_phone_footer.png" alt="" />
+                    <div class="cactus-slideshow-element"> 
+                        <p> Listing management demo </p>
+                        <video muted loop autoplay disablePictureInPicture>
+                                <source src="static/video/ancienttech_demo.webm" type="video/webm" />
+                                <source src="static/video/ancienttech_demo.mp4" type="video/mp4" />
+                                <a href="static/video/ancienttech_demo.mp4" download="static/video/ancienttech_demo.mp4">Download video.</a>
+                        </video>
                     </div>
 
                     <a class="prev" onclick="plusSlides(-1, 1)">&#10094;</a>
                     <a class="next" onclick="plusSlides(1, 1)">&#10095;</a>
-                </div>
-
-                <div id="cactus-gallery-right">
-                    <img src="static/image/ancienttech_desktop.png" alt="" />
-                    <video muted loop autoplay disablePictureInPicture>
-                            <source src="static/video/ancienttech_demo.webm" type="video/webm" />
-                            <source src="static/video/ancienttech_demo.mp4" type="video/mp4" />
-                            <a href="static/video/ancienttech_demo.mp4" download="static/video/ancienttech_demo.mp4">Download video.</a>
-                    </video>
                 </div>
             </div>
         </section>
