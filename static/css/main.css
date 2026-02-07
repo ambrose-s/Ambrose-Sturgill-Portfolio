@@ -1,6 +1,8 @@
 :root {
     --background: oklch(99.5% 0 0);
-    --muted-foreground: oklch(16.376% 0.00002 271.152);
+    --almost-black: oklch(16.376% 0.00002 271.152);
+    --muted-foreground: oklch(55.66% 0 0);
+    --muted-selected: oklch(95% 0 0);
     --blue: oklch(62.3% .214 259.815);
 }
 
@@ -21,11 +23,51 @@ section {
 }
 
 section p {
-    color: var(--muted-foreground);
+    color: var(--almost-black);
+}
+
+#about p {
+    margin-bottom: 2%;
+}
+
+.text-small {
+    color: var(--almost-black);
+    font-weight: 300;
+    justify-content: center;
+    margin-top: 0;
+}
+
+.text-small svg {
+    vertical-align: text-bottom;
 }
 
 h2 {
     font-weight: 700;
+}
+
+.buttons {
+    display: flex;
+    gap: 1%;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.button {
+    border-color: var(--muted-foreground);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: .375rem;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background);
+    color: var(--almost-black);
+    padding: 5px;
+    display: inline-flex;
+}
+
+.button:hover {
+    background-color: var(--muted-selected);
 }
 
 
@@ -37,7 +79,7 @@ h2 {
     width: 100%;
     box-sizing: border-box;
     border-left: 5px solid var(--blue);
-    padding: 0 2% 2% 2%;
+    padding: 0 1% 1% 1%;
 }
 
 .etv-slideshow-element,
@@ -59,7 +101,7 @@ h2 {
     cursor: pointer;
     position: absolute;
     top: 0;
-    right: 1em;
+    right: 1%;
     color: var(--blue);
     font-weight: 700;
     transition: 0.2s ease;
@@ -67,7 +109,7 @@ h2 {
 }
 
 .prev {
-    right: 4em;
+    right: 7%;
 }
 
 .prev:hover, .next:hover {
