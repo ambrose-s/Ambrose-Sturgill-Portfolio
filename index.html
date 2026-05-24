@@ -16,8 +16,8 @@
 -->
 
 <!-- 
-    Credit for slideshow:
-    https://www.w3schools.com/howto/howto_js_slideshow.asp
+    credit for pseudo element style manipulation:
+    https://dev.to/ridhikgovind/selecting-and-manipulating-css-pseudo-elements-such-as-before-and-after-using-javascript-easy-way-1bfj
 
     credit for inspiration:
     https://rubenmeines.com/
@@ -53,7 +53,7 @@
         <p> ambrose.sturgill02&#64;gmail<span>&#46;</span>com</p>
         <p>
             Passionate and friendly software engineer. <br />
-            Bachelor of Software Engineering <br />
+            BS in Software Engineering <br />
             Humboldt County <br />
         </p>
         <p>
@@ -80,7 +80,7 @@
     <div class="header-hero show-over-760">
         <p>
             Passionate and friendly software engineer. <br />
-            Bachelor of Software Engineering <br />
+            BS in Software Engineering <br />
             Humboldt County <br />
         </p>
         <img src="/static/image/white.png" />
@@ -103,7 +103,7 @@
             <p> Projects </p>
         </div>
         <div class="project-nav-buttons">
-            <div class="project-nav-button cool">
+            <button class="project-nav-button" id="button-etv" data-project="#project-etv" data-opacity="--opacity-etv">
                 <p class="project-nav-button-name"> Election Transparency Viewer </p>
                 <p class="project-nav-button-madefor"> The Elections Transparency Project </p>
                 <ul class="project-nav-button-languages">
@@ -115,22 +115,22 @@
                 <ul class="project-nav-button-tools">
                     <li> Django </li>
                 </ul>
-            </div>
-            <div class="project-nav-button warm">
+            </button>
+            <button class="project-nav-button" id="button-cactus" data-project="#project-cactus" data-opacity="--opacity-cactus">
                 <p class="project-nav-button-name"> Cactus Portfolio Website </p>
                 <p class="project-nav-button-madefor"> Ancient Tech Cultivation </p>
                 <ul class="project-nav-button-languages">
                     <li> HTML </li>
                     <li> CSS </li>
                     <li> JS </li>
-                    <li> YML </li>
+                    <li> YAML </li>
                 </ul>
                 <ul class="project-nav-button-tools">
                     <li> GitHub Pages </li>
                     <li> GitHub Actions </li>
                 </ul>
-            </div>
-            <div class="project-nav-button silly">
+            </button>
+            <button class="project-nav-button" id="button-soundscape" data-project="#project-soundscape" data-opacity="--opacity-soundscape">
                 <p class="project-nav-button-name"> SoundScape </p>
                 <p class="project-nav-button-madefor"> 2026 Hackathon for Social Good </p>
                 <ul class="project-nav-button-languages">
@@ -143,18 +143,137 @@
                     <li> Flask </li>
                     <li> iNaturalist </li>
                 </ul>
-            </div>
+            </button>
         </div>
     </div>
 
     <!-- projects -->
 
-    <div class="project">
+    <noscript> <p class="noscript-message"> To view projects please enable JavaScript. </p> </noscript>
+    
+    <div class="project" id="project-etv" hidden="hidden">
+        <div class="project-date">
+            <p> Jan. 2025 - May 2025 </p>
+        </div>
+        <div class="project-name">
+            <p> Election Transparency Viewer </p>
+        </div>
+        <div class="project-madefor">
+            <p> Made for the Elections Transparency Project </p>
+        </div>
+        <div class="project-link">
+            <p> Visit at <a href="https://www.electiontransparencyproject.org/"> https://www.electiontransparencyproject.org </a> </p>
+        </div>
+        <div class="project-contributors">
+            <p> Contributors: Ambrose Sturgill, Brennan Duffy, Alexander Georgopolous </p>
+        </div>
+        <div class="project-languages">
+            <p> Languages used: HTML5, CSS3, JavaScript, Python </p>
+        </div>
+        <div class="project-tools">
+            <p> Frameworks/Tools used: Django, SQLite </p>
+        </div>
+        <div class="project-description">
+            <p> The Election Transparency Viewer is a locally hosted web application developed to assist the process of scanning 
+                ballots by providing a live view of scanned ballots for the Election Transparency Project, a nonprofit volunteer 
+                run organization dedicated to the verification of the electoral process for Humboldt County.  <br />
+            </p>
+            <p> The application uses the Django web framework and integrates a SQLite database controlled by the ballot scanning 
+                machine. Along with assisting in the application's development on all layers, my role included the design of the 
+                user interface and the development of the image viewer, which was implemented using vanilla Javascript. 
+            </p>
+        </div>
+        <div class="project-slideshow">
+            <div class="project-slideshow-title">
+                <p> ... </p>
+                <div class="project-slideshow-nav">
+                    <button class="prev"> 
+                        <svg viewBox="0 0 6 10" fill="currentColor">
+                        <path d="M6 0 L0 5 L6 10 Z"/>
+                        </svg>
+                    </button>
+                    <button class="next"> 
+                        <svg viewBox="0 0 6 10" fill="currentColor">
+                        <path d="M0 0 L6 5 L0 10 Z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="project-slideshow-content">
+                <video muted loop autoplay disablePictureInPicture tabindex="-1" hidden="hidden" data-title="Demo">
+                    <source src="static/video/ETV_demo.webm" type="video/webm" />
+                    <source src="static/video/ETV_demo.mp4" type="video/mp4" />
+                    <a href="static/video/ETV_demo.mp4" download="static/video/ETV_demo.mp4"> Download video. </a>
+                </video>
+                <img src="/static/image/ETV_running_total.png" hidden="hidden" data-title="Running Total View" />
+                <img src="/static/image/ETV_snapshot.png" hidden="hidden" data-title="Snapshot View" />
+                <img src="/static/image/ETV_image_view.png" hidden="hidden" data-title="Image View" />
+            </div>
+        </div>
+    </div>
+
+    <div class="project" id="project-cactus" hidden="hidden">
+        <div class="project-date">
+            <p> Dec. 2025 - Jan. 2026 </p>
+        </div>
+        <div class="project-name">
+            <p> Cactus Portfolio Website </p>
+        </div>
+        <div class="project-madefor">
+            <p> Made for Ancient Tech Cultivation </p>
+        </div>
+        <div class="project-link">
+            <p> <p> Visit at <a href="https://ancienttechcultivation.github.io/cactus/"> https://ancienttechcultivation.github.io/cactus </a> </p> </p>
+        </div>
+        <div class="project-contributors">
+            <p> Contributors: Ambrose Sturgill </p>
+        </div>
+        <div class="project-languages">
+            <p> Languages used: HTML5, CSS3, JavaScript, YAML, XML </p>
+        </div>
+        <div class="project-tools">
+            <p> Frameworks/Tools used: GitHub Pages, GitHub Actions </p>
+        </div>
+        <div class="project-description">
+            <p> A simple gallery website for listing cactus.
+Responsive design for appealing layout on all screen sizes.
+Website content is dynamically generated from local XML file.
+Listings are managed through GitHub Actions Workflows, which modify the XML file and can generate multiple resolutions of 
+images for the responsive design.  </p>
+        </div>
+        <div class="project-slideshow">
+            <div class="project-slideshow-title">
+                <p> ... </p>
+                <div class="project-slideshow-nav">
+                    <button class="prev"> 
+                        <svg viewBox="0 0 6 10" fill="currentColor">
+                        <path d="M6 0 L0 5 L6 10 Z"/>
+                        </svg>
+                    </button>
+                    <button class="next"> 
+                        <svg viewBox="0 0 6 10" fill="currentColor">
+                        <path d="M0 0 L6 5 L0 10 Z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="project-slideshow-content">
+                <div class="scrollable-screenshot" tabindex="-1" hidden="hidden" data-title="Scrollable Webpage Screenshot"> <img src="static/image/ancienttech_desktop.png" alt="" /> </div>
+                <video muted loop autoplay disablePictureInPicture tabindex="-1"  hidden="hidden" data-title="Listing Management Demo">
+                    <source src="static/video/ancienttech_demo.webm" type="video/webm" />
+                    <source src="static/video/ancienttech_demo.mp4" type="video/mp4" />
+                    <a href="static/video/ancienttech_demo.mp4" download="static/video/ancienttech_demo.mp4">Download video.</a>
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <div class="project" id="project-soundscape" hidden="hidden">
         <div class="project-date">
             <p> ... </p>
         </div>
         <div class="project-name">
-            <p> ... </p>
+            <p> SoundScape </p>
         </div>
         <div class="project-madefor">
             <p> ... </p>
@@ -165,10 +284,10 @@
         <div class="project-contributors">
             <p> ... </p>
         </div>
-        <div class="languages">
+        <div class="project-languages">
             <p> ... </p>
         </div>
-        <div class="tools">
+        <div class="project-tools">
             <p> ... </p>
         </div>
         <div class="project-description">
@@ -176,14 +295,22 @@
         </div>
         <div class="project-slideshow">
             <div class="project-slideshow-title">
-                <p></p>
+                <p> ... </p>
                 <div class="project-slideshow-nav">
-                    <a class="prev"> . </a>
-                    <a class="next"> . </a>
+                    <button class="prev"> 
+                        <svg viewBox="0 0 6 10" fill="currentColor">
+                        <path d="M6 0 L0 5 L6 10 Z"/>
+                        </svg>
+                    </button>
+                    <button class="next"> 
+                        <svg viewBox="0 0 6 10" fill="currentColor">
+                        <path d="M0 0 L6 5 L0 10 Z"/>
+                        </svg>
+                    </button>
                 </div>
             </div>
             <div class="project-slideshow-content">
-
+                <img src="/static/image/white.png" hidden="hidden" />
             </div>
         </div>
     </div>
@@ -193,23 +320,97 @@
 <script type="text/javascript">
     "use strict";
 
-    let slideIndex = [1,1];
-    let slideId = ["etv-slideshow-element", "cactus-slideshow-element"];
-    showSlides(1, 0);
-    showSlides(1, 1);
+    // global variables
+    const root = document.documentElement;
 
-    function plusSlides(n, no) {
-        showSlides(slideIndex[no] += n, no);
-    }
+    // project navigation pseudocode:
+    // iterate over list of project nav buttons
+    //   add click event listener
+    //     if the element associated with displayed Project is not null, 
+    //       set the element associated with displayed Project to display: none / hidden = true
+    //       make the previous button not look pressed
+    //     if the element associated with displayedProject is not equal to the element associated with the data attribute of the button
+    //       set displayedProject to the data attribute of the button
+    //       set the element associated with displayed Project to display: revert / hidden = false
+    //       make the pressed button look pressed
+    //     else
+    //       set displayedProject to null
+    //       make the pressed button not look pressed
 
-    function showSlides(n, no) {
-        let i;
-        let x = document.getElementsByClassName(slideId[no]);
-        if (n > x.length) {slideIndex[no] = 1}
-        if (n < 1) {slideIndex[no] = x.length}
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
+    // *** project navigation ***
+
+    let displayedProject = null;
+
+    const projectNavButtons = document.querySelectorAll(".project-nav-button");
+    if (projectNavButtons.length) {
+        for (const button of projectNavButtons) { // using for instead of foreach for readability
+            button.addEventListener('click', () => {
+                if (displayedProject) { // hide previous project
+                    document.querySelector(displayedProject).hidden = true; // using hidden = true instead of style.display = none for semantic reasons
+                    root.style.setProperty(document.querySelector(`[data-project="${displayedProject}"]`).dataset.opacity, `0`);
+                }
+
+                if (displayedProject != button.dataset.project) { // show current project
+                    displayedProject = button.dataset.project;
+                    document.querySelector(displayedProject).hidden = false;
+                    root.style.setProperty(button.dataset.opacity, `1`);
+                } else { // hide current project
+                    displayedProject = null;
+                    root.style.setProperty(button.dataset.opacity, `0`);
+                    
+                }
+            });
         }
-        x[slideIndex[no]-1].style.display = "block";
     }
+
+    // *** slideshow ***
+
+    function setUpSlideShow(projectId){
+        /**
+         * @param {string} projectId
+         */ 
+
+        const slides = document.querySelectorAll(`${projectId} .project-slideshow-content > *`);
+        let slideIndex = 0;
+        const prev = document.querySelector(`${projectId} .prev`);
+        const next = document.querySelector(`${projectId} .next`);
+
+        if (slides.length && prev && next) {
+            prev.addEventListener('click', () => {
+                let prevIndex = slideIndex;
+                slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+                showNewSlide(slides, prevIndex, slideIndex, projectId);
+            });
+
+            next.addEventListener('click', () => {
+                let prevIndex = slideIndex;
+                slideIndex = (slideIndex + 1) % slides.length;
+                showNewSlide(slides, prevIndex, slideIndex, projectId);
+            });
+        }
+
+        showNewSlide(slides, 1, 0, projectId);
+    }
+
+    function showNewSlide(slides, prevSlideIndex, currSlideIndex, projectId) {
+        /**
+         * @param {NodeListOf<HTMLElement>} slides
+         * @param {number} prevSlideIndex
+         * @param {number} currSlideIndex
+         * @param {string} projectId
+         */ 
+
+        const title = document.querySelector(`${projectId} .project-slideshow-title > p`);
+        title.textContent = slides[currSlideIndex].dataset.title ?? "Missing Title.";
+        slides[prevSlideIndex].hidden = true;
+        slides[currSlideIndex].hidden = false;
+    }
+
+    async function main() {
+        setUpSlideShow("#project-etv");
+        setUpSlideShow("#project-cactus");
+        setUpSlideShow("#project-soundscape");
+    }
+
+    main();
 </script>
