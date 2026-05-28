@@ -166,7 +166,7 @@ body::after {
     display: revert;
 }
 
-.show-under-760 p {
+.show-under-760 p, .show-under-760 h1 {
     margin-bottom: var(--space-sm);
 }
 
@@ -174,8 +174,9 @@ body::after {
     margin-bottom: var(--space-xs);
 }
 
-.show-under-760 p:nth-child(1) {
+.show-under-760 h1 {
     font-weight: var(--fontw-semi);
+    font-size: var(--font-lg);
 }
 
 .header {
@@ -280,7 +281,7 @@ body::after {
     border: var(--border);
 }
 
-.project-nav-title p {
+.project-nav-title h1 {
     font-weight: var(--fontw-semi);
     font-size: var(--font-lg);
 }
@@ -289,7 +290,7 @@ body::after {
     z-index: 0;
     position: relative;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     gap: var(--space-md);
     width: 100%;
     height: fit-content;
@@ -394,7 +395,7 @@ body::after {
 }
 
 .project-madefor p, .project-link p, .project-contributors p, .project-languages p, .project-tools p {
-    font-weight: var(--fontw-reg);
+    font-weight: var(--fontw-thin);
     font-size: var(--font-sm);
 }
 
@@ -406,7 +407,7 @@ body::after {
     font-weight: var(--fontw-light);
 }
 
-.project-name p {
+.project-name h1 {
     font-weight: var(--fontw-semi);
     font-size: var(--font-lg);
 }
@@ -441,14 +442,14 @@ body::after {
     border-top: none;
 }
 
-.project-slideshow-title > p {
+.project-slideshow-title > h2 {
     font-weight: var(--fontw-semi);
     font-size: var(--font-md);
     margin-left: var(--space-sm);
 }
 
 @media screen and (width >= 760px) {
-    .project-slideshow-title > p {
+    .project-slideshow-title > h2 {
         font-size: var(--font-lg);
     }
 }
