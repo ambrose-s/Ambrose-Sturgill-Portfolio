@@ -13,7 +13,7 @@
     --font-md: 20px;
     --font-lg: 24px;
 
-    @media screen and (width <= 790px) {
+    @media screen and (width < 790px) {
         --font-xs: 14px;
         --font-sm: 17px;
         --font-md: 19px;
