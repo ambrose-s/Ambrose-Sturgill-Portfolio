@@ -13,7 +13,7 @@
     --font-md: 20px;
     --font-lg: 24px;
 
-    @media screen and (width <= 760px) {
+    @media screen and (width <= 790px) {
         --font-xs: 14px;
         --font-sm: 17px;
         --font-md: 19px;
@@ -149,7 +149,7 @@ body::after {
     z-index: -1;
 }
 
-@media screen and (width >= 760px) {
+@media screen and (width >= 790px) {
     body {
         padding: var(--space-lg);
     }
@@ -162,19 +162,19 @@ body::after {
 
 /* header */
 
-.show-under-760 {
+.show-under-790 {
     display: revert;
 }
 
-.show-under-760 p, .show-under-760 h1 {
+.show-under-790 p, .show-under-790 h1 {
     margin-bottom: var(--space-sm);
 }
 
-.show-under-760 p > *, .links {
+.show-under-790 p > *, .links {
     margin-bottom: var(--space-xs);
 }
 
-.show-under-760 h1 {
+.show-under-790 h1 {
     font-weight: var(--fontw-semi);
     font-size: var(--font-lg);
 }
@@ -188,28 +188,28 @@ body::after {
     padding-right: var(--space-sm);
 }
 
-.show-over-760 {
+.show-over-790 {
     display: none;
 }
 
-.show-under-1025 {
+.show-under-1040 {
     display: none;
 }
 
-.show-over-1025 {
+.show-over-1040 {
     display: none;
 }
 
-@media screen and (width >= 760px) {
-    .show-under-760 {
+@media screen and (width >= 790px) {
+    .show-under-790 {
         display: none;
     }
 
-    .show-over-760 {
+    .show-over-790 {
         display: revert;
     }
 
-    .header-upper.show-under-1025, .show-under-1025 {
+    .header-upper.show-under-1040, .show-under-1040 {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -245,12 +245,12 @@ body::after {
     }
 }
 
-@media screen and (width >= 1025px) {
-    .header-upper.show-under-1025, .show-under-1025 {
+@media screen and (width >= 1040px) {
+    .header-upper.show-under-1040, .show-under-1040 {
         display: none;
     }
 
-    .show-over-1025 {
+    .show-over-1040 {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -343,7 +343,7 @@ body::after {
     content: "•";
 }
 
-@media screen and (width >= 1025px) {
+@media screen and (width >= 1040px) {
     .project-nav-buttons {
         flex-direction: row;
         /* justify-content: space-between;
@@ -448,7 +448,7 @@ body::after {
     margin-left: var(--space-sm);
 }
 
-@media screen and (width >= 760px) {
+@media screen and (width >= 790px) {
     .project-slideshow-title > h2 {
         font-size: var(--font-lg);
     }
