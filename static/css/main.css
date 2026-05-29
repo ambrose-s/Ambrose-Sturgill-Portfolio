@@ -237,7 +237,7 @@ body::after {
 
     .header-hero img {
         height: 300px;
-        
+        margin-bottom: var(--space-sm);
     }
 
     .header-hero p:nth-child(3) {
