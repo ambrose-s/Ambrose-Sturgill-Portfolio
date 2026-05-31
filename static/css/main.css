@@ -34,13 +34,14 @@
     --hover-grey: rgb(250, 250, 250);
     --box-bg: #e6e5e553;
 
-    --grad-green: #aafabbff;
+    --grad-green: #aff3c8ff;
     --grad-blue: #9bdfffff;
-    --grad-lblue: rgba(180, 245, 255, 0.465);
+    --grad-lblue: #b4f5ffff;
     --grad-indigo: #b5a2ffff;
-    --grad-pink: #feb6dcff;
-    --grad-red: #fab3aeff;
-    --grad-yellow: #fae9aeff;
+    --grad-pink: #febbd3ff;
+    --grad-red: #febca9ff;
+    --grad-orange: #fbce93ff;
+    --grad-yellow: #f9ef87ff;
     
     --gradient-cold: radial-gradient(
         circle at bottom 175% left 80% in oklch,
@@ -183,6 +184,19 @@ body::after {
     margin-bottom: var(--space-lg);
 }
 
+.header img {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    width: 125px;
+}
+
+@media screen and (width < 530px) {
+    .header img {
+        display: none;
+    }
+}
+
 .links a, .header-lower a, .header-upper a {
     display: inline-block;
     padding-right: var(--space-sm);
@@ -290,7 +304,7 @@ body::after {
     z-index: 0;
     position: relative;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: var(--space-md);
     width: 100%;
     height: fit-content;
@@ -310,6 +324,16 @@ body::after {
 
 }
 
+@media screen and (width >= 1040px) {
+    .project-nav-buttons {
+        flex-direction: row-reverse;
+        /* justify-content: space-between;
+    }
+    .project-nav-button {
+        width: fit-content;*/ /* i'd want it like this for infinite carousel */
+    }
+}
+
 .project-nav-button {
     z-index: 2;
     position: relative;
@@ -318,6 +342,7 @@ body::after {
     padding: var(--space-sm);
     border: var(--border);
     background-color: var(--white);
+    cursor: pointer;
 }
 
 .project-nav-button > * {
@@ -341,16 +366,6 @@ body::after {
 
 .project-nav-button-languages li::before, .project-nav-button-tools li::before {
     content: "•";
-}
-
-@media screen and (width >= 1040px) {
-    .project-nav-buttons {
-        flex-direction: row;
-        /* justify-content: space-between;
-    }
-    .project-nav-button {
-        width: fit-content;*/ /* i'd want it like this for infinite carousel */
-    }
 }
 
 #button-etv::before, #button-cactus::before, #button-soundscape::before {
@@ -382,7 +397,6 @@ body::after {
 
 #button-etv:hover::before, #button-cactus:hover::before, #button-soundscape:hover::before {
     opacity: 1;
-    cursor: pointer;
 }
 
 /* projects */
