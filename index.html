@@ -357,25 +357,27 @@
 
     // *** project navigation ***
 
-    let displayedProject = null;
+    let displayedProject = null; // holds the id of a project container, populated from the data attribute of a project nav button
 
     const projectNavButtons = document.querySelectorAll(".project-nav-button");
     if (projectNavButtons.length) {
         for (const button of projectNavButtons) { // using for instead of foreach for readability
             button.addEventListener('click', () => {
                 if (displayedProject) { // hide previous project
+                    document.querySelector(displayedProject).dispatchEvent(new CustomEvent('project-hide')); // communicate to slides to mute current slide
                     document.querySelector(displayedProject).hidden = true; // using hidden = true instead of style.display = none for semantic reasons
-                    root.style.setProperty(document.querySelector(`[data-project="${displayedProject}"]`).dataset.opacity, `0`);
+                    root.style.setProperty(document.querySelector(`[data-project="${displayedProject}"]`).dataset.opacity, `0`); // change button style
                 }
 
                 if (displayedProject != button.dataset.project) { // show current project
                     displayedProject = button.dataset.project;
+                    document.querySelector(displayedProject).dispatchEvent(new CustomEvent('project-show')); // communicate to slides to unmute current slide
                     document.querySelector(displayedProject).hidden = false;
-                    root.style.setProperty(button.dataset.opacity, `1`);
+                    root.style.setProperty(button.dataset.opacity, `1`); // change button style
                 } else { // hide current project
+                    document.querySelector(displayedProject).dispatchEvent(new CustomEvent('project-hide')); // communicate to slides to mute current slide
                     displayedProject = null;
-                    root.style.setProperty(button.dataset.opacity, `0`);
-                    
+                    root.style.setProperty(button.dataset.opacity, `0`); // change button style
                 }
             });
         }
@@ -397,16 +399,33 @@
         const next = document.querySelector(`${projectId} .next`);
 
         if (prev && next && slides.length > 1 ) {
-            prev.addEventListener('click', () => {
+            prev.addEventListener('click', () => { // show previous slide
                 let prevIndex = slideIndex;
                 slideIndex = (slideIndex - 1 + slides.length) % slides.length;
                 showNewSlide(slides, prevIndex, slideIndex, projectId);
             });
 
-            next.addEventListener('click', () => {
+            next.addEventListener('click', () => { // show next slide
                 let prevIndex = slideIndex;
                 slideIndex = (slideIndex + 1) % slides.length;
                 showNewSlide(slides, prevIndex, slideIndex, projectId);
+            });
+
+            // mute video when hidden
+            const project = document.querySelector(projectId);
+
+            project.addEventListener('project-hide', () => {
+                if (slides[slideIndex].tagName === 'VIDEO') {
+                    slides[slideIndex].pause();
+                    slides[slideIndex].volume = 0;
+                }
+            });
+
+            project.addEventListener('project-show', () => {
+                if (slides[slideIndex].tagName === 'VIDEO') {
+                    slides[slideIndex].volume = 1;
+                    slides[slideIndex].play().catch(() => {}); // play() returns a promise and can throw errors
+                }
             });
         }
 
