@@ -322,7 +322,7 @@
                     </div>
                     <div class="project-slideshow-content">
                         <div class="scrollable-screenshot" tabindex="-1" hidden="hidden" data-title="Scrollable Webpage Screenshot"> <img src="static/image/soundscape_full_page.png" alt="Screenshot of main page." /> </div>
-                        <video loop autoplay disablePictureInPicture tabindex="-1"  hidden="hidden" data-title="Demo With Sound" alt="Demo of application in use, using the search feature and listening to observations.">
+                        <video loop muted autoplay disablePictureInPicture tabindex="-1"  hidden="hidden" data-title="Demo With Sound" data-audio="true" alt="Demo of application in use, using the search feature and listening to observations.">
                             <source src="static/video/soundscape_demo.mp4" type="video/mp4" />
                             <a href="static/video/soundscape_demo.mp4" download="static/video/soundscape_demo.mp4">Download video.</a>
                         </video>
@@ -415,16 +415,20 @@
             const project = document.querySelector(projectId);
 
             project.addEventListener('project-hide', () => {
-                if (slides[slideIndex].tagName === 'VIDEO') {
+                if (slides[slideIndex] instanceof HTMLVideoElement) {
                     slides[slideIndex].pause();
-                    slides[slideIndex].volume = 0;
+                    if(slides[slideIndex].dataset.audio === "true") {
+                        slides[slideIndex].muted = true;
+                    }
                 }
             });
 
             project.addEventListener('project-show', () => {
-                if (slides[slideIndex].tagName === 'VIDEO') {
-                    slides[slideIndex].volume = 1;
+                if (slides[slideIndex] instanceof HTMLVideoElement) {
                     slides[slideIndex].play().catch(() => {}); // play() returns a promise and can throw errors
+                    if(slides[slideIndex].dataset.audio === "true") {
+                        slides[slideIndex].muted = false;
+                    }
                 }
             });
         }
@@ -442,17 +446,32 @@
 
         const title = document.querySelector(`${projectId} .project-slideshow-title > h2`);
         title.textContent = slides[currSlideIndex].dataset.title ?? "Missing Title.";
-        slides[prevSlideIndex].hidden = true;
-        slides[currSlideIndex].hidden = false;
+        if (prevSlideIndex != currSlideIndex) {
+            slides[prevSlideIndex].hidden = true;
+            slides[currSlideIndex].hidden = false;
 
-        if (slides[prevSlideIndex].tagName === 'VIDEO') {
-            slides[prevSlideIndex].pause();
-            slides[prevSlideIndex].volume = 0;
+            if (slides[prevSlideIndex] instanceof HTMLVideoElement) {
+                slides[prevSlideIndex].pause();
+                if(slides[prevSlideIndex].dataset.audio === "true") {
+                    slides[prevSlideIndex].muted = true;
+                }
+            }
+            if (slides[currSlideIndex] instanceof HTMLVideoElement) {
+                slides[currSlideIndex].play().catch(() => {}); // play() returns a promise and can throw errors
+                if(slides[currSlideIndex].dataset.audio === "true") {
+                    slides[currSlideIndex].muted = false;
+                }
+            }
+        } else { // if prevSlide and currSlide are the same, show and play the slide
+            slides[currSlideIndex].hidden = false;
+            if (slides[currSlideIndex] instanceof HTMLVideoElement) {
+                slides[currSlideIndex].play().catch(() => {}); // play() returns a promise and can throw errors
+                if(slides[currSlideIndex].dataset.audio === "true") {
+                    slides[currSlideIndex].muted = false;
+                }
+            }
         }
-        if (slides[currSlideIndex].tagName === 'VIDEO') {
-            slides[currSlideIndex].volume = 1;
-            slides[currSlideIndex].play().catch(() => {}); // play() returns a promise and can throw errors
-        }
+        
     }
 
     async function main() {
