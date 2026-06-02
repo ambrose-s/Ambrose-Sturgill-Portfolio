@@ -34,23 +34,23 @@
     --hover-grey: rgb(250, 250, 250);
     --box-bg: #e6e5e553;
 
-    --grad-green: #aff3c8ff;
-    --grad-blue: #9bdfffff;
-    --grad-lblue: #b4f5ffff;
-    --grad-indigo: #b5a2ffff;
-    --grad-pink: #febbd3ff;
-    --grad-red: #febca9ff;
-    --grad-orange: #fbce93ff;
-    --grad-yellow: #f9ef87ff;
+    --grad-green: #aff3af;
+    --grad-blue: #6ed7f0;
+    --grad-lblue: #b4f5ff;
+    --grad-indigo: #c599ff;
+    --grad-pink: #fbcec9;
+    --grad-red: #fbb892;
+    --grad-orange: #fad185;
+    --grad-yellow: #f6e975;
     
     --gradient-cold: radial-gradient(
         circle at bottom 175% left 80% in oklch,
-        var(--grad-blue),
-        transparent 55%
+        var(--grad-blue) 0%,
+        oklch( from var(--grad-blue) l c h / 0) 55%
         ),
         radial-gradient(
         circle at top 175% right 80% in oklch,
-        var(--grad-indigo),
+        var(--grad-indigo) 0%,
         Transparent 60%
     );
 
@@ -78,7 +78,7 @@
 
     --gradient-silly: radial-gradient(
         circle at bottom 175% left 100% in oklch,
-        var(--grad-pink),
+        var(--grad-orange),
         transparent 50%
         ),
         radial-gradient(
