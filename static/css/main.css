@@ -62,9 +62,9 @@
         transparent 50%
         ),
         radial-gradient(
-        circle at top 175% right 100% in oklch,
-        var(--grad-yellow),
-        var(--grad-blue) 20%,
+        circle at top 175% right 100% in oklch decreasing hue,
+        var(--grad-red),
+        var(--grad-lblue) 20%,
         Transparent 50%
     );
 
@@ -95,12 +95,12 @@
         );
 
     --gradient-dark: radial-gradient(
-        circle at bottom 50% right 150% in oklch,
+        circle at bottom 50% right 150% in oklch longer hue,
         var(--grad-indigo),
         transparent 70%
         ),
         radial-gradient(
-        circle at bottom 50% left 150% in oklch,
+        circle at bottom 50% left 150% in oklch longer hue,
         var(--grad-indigo),
         transparent 70%
         );
