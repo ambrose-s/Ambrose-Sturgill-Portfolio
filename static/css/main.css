@@ -32,20 +32,21 @@
     --black: black;
     --white: white;
     --hover-grey: rgb(250, 250, 250);
-    --box-bg: #e6e5e553;
+    --box-bg: #b4dbf539;
 
-    --grad-green: #aff3af;
+    --grad-green: #a5f3b3;
     --grad-blue: #6ed7f0;
     --grad-lblue: #b4f5ff;
-    --grad-indigo: #c599ff;
-    --grad-pink: #fbcec9;
+    --grad-indigo: #b1a5ff;
+    --grad-pink: #edb6ff;
+    --grad-pinker: #ffb6ff;
     --grad-red: #fbb892;
     --grad-orange: #fad185;
-    --grad-yellow: #f6e975;
+    --grad-yellow: #fff6a1;
     
     --gradient-cold: radial-gradient(
         circle at bottom 175% left 80% in oklch,
-        var(--grad-blue) 0%,
+        var(--grad-blue),
         oklch( from var(--grad-blue) l c h / 0) 55%
         ),
         radial-gradient(
@@ -56,34 +57,40 @@
 
     --gradient-cool: radial-gradient(
         circle at bottom 175% left 100% in oklch,
-        var(--grad-green),
+        var(--grad-blue),
+        var(--grad-green) 20%,
         transparent 50%
         ),
         radial-gradient(
         circle at top 175% right 100% in oklch,
-        var(--grad-blue),
+        var(--grad-yellow),
+        var(--grad-blue) 20%,
         Transparent 50%
     );
 
     --gradient-warm: radial-gradient(
         circle at bottom 175% left 100% in oklch,
-        var(--grad-yellow),
+        var(--grad-blue),
+        var(--grad-yellow) 20%,
         transparent 50%
         ),
         radial-gradient(
         circle at top 175% right 100% in oklch,
-        var(--grad-red),
+        var(--grad-pink),
+        var(--grad-red) 20%,
         Transparent 50%
     );
 
     --gradient-silly: radial-gradient(
         circle at bottom 175% left 100% in oklch,
-        var(--grad-orange),
+        var(--grad-yellow),
+        var(--grad-pink) 20%,
         transparent 50%
         ),
         radial-gradient(
         circle at top 175% right 100% in oklch,
-        var(--grad-green),
+        var(--grad-yellow) 10%,
+        var(--grad-green) 20%,
         Transparent 50%
         );
 
@@ -283,7 +290,7 @@ body::after {
     display: flex;
     flex-direction: column;
     background-color: var(--white);
-    background: var(--box-bg);
+    background: transparent;
     margin-bottom: var(--space-lg);
 }
 
@@ -316,10 +323,12 @@ body::after {
 .project-nav-buttons::after {
     z-index: 1;
     content: "";
-    margin: calc(var(--space-md) * -1);
+    inset: 0;
     width: 100%;
     height: 100%;
-    position:absolute;
+    position: absolute;
+    background-color: var(--box-bg);
+    mix-blend-mode: multiply;
     /*background: var(--gradient-stripes);*/
 
 }
@@ -396,7 +405,7 @@ body::after {
 }
 
 #button-etv:hover::before, #button-cactus:hover::before, #button-soundscape:hover::before {
-    opacity: 1;
+    opacity: 0.8;
 }
 
 /* projects */

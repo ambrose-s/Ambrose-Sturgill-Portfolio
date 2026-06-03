@@ -373,7 +373,7 @@
                     displayedProject = button.dataset.project;
                     document.querySelector(displayedProject).dispatchEvent(new CustomEvent('project-show')); // communicate to slides to unmute current slide
                     document.querySelector(displayedProject).hidden = false;
-                    root.style.setProperty(button.dataset.opacity, `1`); // change button style
+                    root.style.setProperty(button.dataset.opacity, `0.5`); // change button style
                 } else { // hide current project
                     document.querySelector(displayedProject).dispatchEvent(new CustomEvent('project-hide')); // communicate to slides to mute current slide
                     displayedProject = null;
